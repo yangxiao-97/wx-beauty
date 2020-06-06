@@ -1,0 +1,34 @@
+<!--pages/home/home.wxml-->
+<camera style="height:{{wH}}px;width:100%;" flash="off" device-position="{{position}}" wx:if="{{isShowPic===false}}">
+	<cover-view class="btn">
+		<!-- 切换摄像头 -->
+		<cover-image src="/images/icon/reverse.png" bindtap="reverseCamera"></cover-image>
+		<!-- 拍照 -->
+		<cover-image src="/images/icon/camera.png" bindtap="takePhoto"></cover-image>
+		<!-- 从相册中选取图片 -->
+		<cover-image src="/images/icon/album.png" bindtap="choosePhoto"></cover-image>
+	</cover-view>
+</camera>
+<view wx:else>
+  <image src='{{src}}' style='width: 100%; height: {{wH}}px; display: block;' mode='aspectFill'></image>
+  <view class='faceInfo' wx:if="{{isShowInfo}}">
+   <view class="face_row">
+			<text>这是一张{{face_Info.face_type}}</text>
+		</view>
+		<view class="face_row">
+			<text>您的颜值：{{faceInfo.beauty}}</text>
+			<text>您的脸型：{{map.face_shape[faceInfo.face_shape.type]}}</text>
+		</view>
+		<view class="face_row">
+			<text>年龄：{{faceInfo.age}}</text>
+			<text>性别：{{map.gender[faceInfo.gender.type]}}</text>
+		</view>
+		<view class="face_row">
+			<text>表情：{{map.expression[faceInfo.expression.type]}}</text>
+			<text>情绪：{{map.emotion[faceInfo.emotion.type]}}</text>
+		</view>
+  </view>
+  <button type='warn' class='reChoose' bindtap='reChoose'>换一张</button>
+</view>
+
+
