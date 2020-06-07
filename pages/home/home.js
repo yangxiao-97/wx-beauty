@@ -1,3 +1,5 @@
+//获取全局实例对象
+const app = getApp()
 // pages/home/home.js
 Page({
 
@@ -95,7 +97,7 @@ choosePhoto(){
     sourceType:['album'],
     success:(res)=>{
       //若文件路径长度大于0，即成功选取了图片
-      if(res.tempFilePaths.lenght>0){
+      if(res.tempFilePaths.length>0){
           this.setData({
             src:res.tempFilePaths[0],
             isShowPic:true
@@ -105,9 +107,7 @@ choosePhoto(){
         }
       },
     fail:()=>{
-      wx.showToast({
-        title: '选取照片失败',
-      })
+     console.log('照片选择失败');
       this.setData({
         src:''
       })

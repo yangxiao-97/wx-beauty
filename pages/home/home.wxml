@@ -13,7 +13,7 @@
   <image src='{{src}}' style='width: 100%; height: {{wH}}px; display: block;' mode='aspectFill'></image>
   <view class='faceInfo' wx:if="{{isShowInfo}}">
    <view class="face_row">
-			<text>这是一张{{face_Info.face_type}}</text>
+			<text>这是一张{{map.face_type[faceInfo.face_type.type]}}</text>
 		</view>
 		<view class="face_row">
 			<text>您的颜值：{{faceInfo.beauty}}</text>
